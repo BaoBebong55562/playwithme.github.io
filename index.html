@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play With We</title>
+    <style>
+        @keyframes wobble {
+            0% { transform: translateX(0%); }
+            15% { transform: translateX(-25%) rotate(-5deg); }
+            30% { transform: translateX(20%) rotate(3deg); }
+            45% { transform: translateX(-15%) rotate(-3deg); }
+            60% { transform: translateX(10%) rotate(2deg); }
+            75% { transform: translateX(-5%) rotate(-1deg); }
+            100% { transform: translateX(0%) rotate(0deg); }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c2c2c;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+        h1 {
+            color: #ecf0f1;
+            margin-top: 40px;
+        }
+        nav {
+            background-color: #1c1c1c;
+            padding: 15px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            position: relative;
+            padding: 5px 0;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        nav a:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: #e74c3c;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out;
+        }
+        nav a:hover:before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+        nav a:hover {
+            color: #e74c3c;
+        }
+        nav a[href="#buy"]:hover {
+            animation: wobble 1s;
+        }
+        .content {
+            padding-top: 80px;
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        .rank {
+            background-color: #444;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            max-width: 350px;
+            text-align: center;
+        }
+        .rank img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        .rank h2 {
+            margin: 0 0 10px;
+            color: #e74c3c;
+        }
+        .rank p {
+            margin: 0;
+            font-size: 18px;
+        }
+        .buy-now {
+            display: block;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .buy-now:hover {
+            background-color: #45a049;
+        }
+        .buy-section {
+            background-color: #555;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            margin: 40px auto;
+        }
+        .buy-section h2 {
+            margin-bottom: 15px;
+        }
+        .buy-section textarea, .buy-section input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        .buy-section .pay-button {
+            background-color: #e74c3c;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: block;
+            margin-top: 10px;
+        }
+        .buy-section .pay-button:hover {
+            background-color: #c0392b;
+        }
+        footer {
+            background-color: #1c1c1c;
+            color: #aaa;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        /* Hiệu ứng tuyết rơi */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Trang chủ</a>
+        <a href="#buy">Mua hàng</a>
+        <a href="#payment-info">Thông tin chuyển khoản</a>
+    </nav>
+    <marquee>PLAY WITH ME</marquee>
+    <div id="home" class="content">
+        <h1>Play With We</h1>
+        <p>CHÀO MỪNG BẠN ĐÃ ĐẾN VÀO TRANG WEB CỦA CHÚNG TÔI:</p>
+        <textarea rows="50" cols="100" placeholder="Viết thông tin của bạn ở đây..."></textarea>
+    </div>
+
+    <div id="buy" class="content">
+        <h2>Thông tin mua hàng</h2>
+        <div class="rank">
+            <img src="https://via.placeholder.com/100x100.png?text=Gold" alt="Vàng">
+            <h2>Vàng</h2>
+            <p>20k/1h</p>
+            <a href="#buy" class="buy-now">Mua ngay</a>
+        </div>
+
+        <div class="rank">
+            <img src="https://via.placeholder.com/100x100.png?text=Silver" alt="Bạc">
+            <h2>Bạc</h2>
+            <p>10k/1h</p>
+            <a href="#buy" class="buy-now">Mua ngay</a>
+        </div>
+
+        <div class="rank">
+            <img src="https://via.placeholder.com/100x100.png?text=Platinum" alt="Bạch kim">
+            <h2>Bạch kim</h2>
+            <p>20k/1h</p>
+            <a href="#buy" class="buy-now">Mua ngay</a>
+        </div>
+
+        <div class="rank">
+            <img src="https://via.placeholder.com/100x100.png?text=Diamond" alt="Kim cương">
+            <h2>Kim cương</h2>
+            <p>25k/1h</p>
+            <a href="#buy" class="buy-now">Mua ngay</a>
+        </div>
+    </div>
+
+    <div id="payment-info" class="buy-section">
+        <h2>Thông tin chuyển khoản</h2>
+        <p>Số tài khoản: <strong>868686806456</strong> Ngân hàng MB Bank</p>
+        <p>Vui lòng chuyển khoản và chờ xác nhận.</p>
+        <p>Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi!</p>
+        <p></p>
+    </div>
+
+    <script>
+        // Hiệu ứng tuyết rơi
+        function createSnowflakes(numFlakes) {
+            for (let i = 0; i < numFlakes; i++) {
+                let snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+                snowflake.style.opacity = Math.random();
+                document.body.appendChild(snowflake);
+            }
+        }
+
+        createSnowflakes(50); // Số lượng tuyết rơi
+
+        // Hiển thị thông tin thanh toán
+        function showPaymentInfo() {
+            document.getElementById('payment-info').style.display = 'block';
+            alert('Chuyển khoản thành công!');
+        }
+    </script>
+</body>
+</html>
